@@ -59,13 +59,9 @@ def go(args):
     y = X.pop("price")  # this removes the column "price" from X and puts it into y
 
     logger.info(f"Minimum price: {y.min()}, Maximum price: {y.max()}")
-    
+
     X_train, X_val, y_train, y_val = train_test_split(
-        X, 
-        y, 
-        test_size=args.val_size, 
-        stratify=X[args.stratify_by], 
-        random_state=args.random_seed
+        X, y, test_size=args.val_size, stratify=X[args.stratify_by], random_state=args.random_seed
     )
 
     logger.info("Preparing sklearn pipeline")
